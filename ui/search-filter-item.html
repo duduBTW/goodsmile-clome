@@ -1,0 +1,78 @@
+{{define "search-filter-item"}} {{if gt (len .Checkboxes) 0}}
+<div class="relative flex-shrink-0">
+  <button
+    id="{{.Ids.Searcher.FilterTrigger}}"
+    class="text-zinc-800 rounded border border-zinc-200 px-4 py-1.5 data-[changed=true]:text-orange-700 data-[changed=true]:border-orange-200 data-[changed=true]:bg-orange-50 group"
+    data-default-label="{{.DefaultLabel}}"
+    data-trigger-for="{{.Type}}"
+  >
+    <span class="pointer-events-none">{{.DefaultLabel}}</span>
+    <i
+      class="pointer-events-none fa-solid fa-chevron-down text-sm ml-2 text-zinc-400 group-data-[changed=true]:text-orange-300"
+    ></i>
+  </button>
+  <div
+    id="{{.Ids.Searcher.FilterPopup}}"
+    data-popup-for="{{.Type}}"
+    data-hidden="true"
+    class="z-10 absolute left-0 top-10 shadow-lg data-[hidden=true]:hidden rounded bg-white py-1 min-w-[400px] w-[400px] border border-zinc-200"
+  >
+    <div class="flex">
+      <input
+        name="{{.Type}}"
+        class="py-2 px-4 flex-1"
+        type="text"
+        placeholder="Search..."
+        autocomplete="off"
+      />
+    </div>
+
+    <div
+      id="{{.Ids.Searcher.FilterPopupSelectedHeader}}"
+      data-hidden="true"
+      class="flex items-baseline gap-3 border-b border-b-zinc-200 data-[hidden=true]:hidden"
+    >
+      <div
+        class="px-4 py-2 data-[active=true]:bg-orange-50 group data-[hidden=true]:hidden flex gap-3 flex-1"
+      >
+        <i
+          class="fa-regular fa-square text-zinc-400 group-data-[selected=true]:hidden mt-[4px]"
+        ></i>
+        <i
+          class="fa-regular fa-square-check text-orange-400 hidden group-data-[selected=true]:inline mt-[4px]"
+        ></i>
+        <span class="flex-1 select-none text-sm font-medium text-zinc-500"
+          >Only show selected</span
+        >
+      </div>
+      <button
+        class="text-sm text-red-500 hover:bg-red-50 hover:text-red-600 px-3 py-0.5 rounded mr-2"
+      >
+        Clear all
+      </button>
+    </div>
+
+    <ul class="flex flex-col pb-1 max-h-96 overflow-y-auto">
+      {{range $index, $checkbox := .Checkboxes}}
+      <li
+        data-id="{{$checkbox.Id}}"
+        data-index="{{$index}}"
+        class="px-4 py-1.5 data-[active=true]:bg-orange-50 group data-[hidden=true]:hidden flex gap-3"
+      >
+        <i
+          data-index="{{$index}}"
+          class="fa-regular fa-square text-zinc-400 group-data-[selected=true]:hidden mt-1"
+        ></i>
+        <i
+          data-index="{{$index}}"
+          class="fa-regular fa-square-check text-orange-400 hidden group-data-[selected=true]:inline mt-1"
+        ></i>
+        <span data-index="{{$index}}" class="flex-1 select-none"
+          >{{$checkbox.Label}}</span
+        >
+      </li>
+      {{end}}
+    </ul>
+  </div>
+</div>
+{{end}} {{end}}

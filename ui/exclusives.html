@@ -1,0 +1,9 @@
+{{define "exclusives"}}
+<section>
+  {{block "section-title" .ExclusivesSectionTitle}}{{ end }}
+
+  <div class="grid grid-cols-6 gap-4 p-8 mx-auto">
+    {{ range.Exclusives }} {{block "product-card" .}}{{ end }} {{ end }}
+  </div>
+</section>
+{{ end }}

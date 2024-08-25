@@ -1,0 +1,13 @@
+<div data-state="{{.JsonSuggestions}}">
+  <div class="flex flex-col py-1">
+    {{range $index, $suggestion := .SuggestItems}}
+    <a
+      class="px-4 py-1 capitalize data-[active=true]:bg-orange-50"
+      data-index="{{$index}}"
+      href="/search?q={{$suggestion}}"
+    >
+      {{$suggestion}}
+    </a>
+    {{end}}
+  </div>
+</div>

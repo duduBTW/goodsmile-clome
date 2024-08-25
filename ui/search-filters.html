@@ -1,0 +1,23 @@
+{{define "search-filters"}}
+<div
+  id="{{.Ids.Searcher.Filters}}"
+  data-hidden="true"
+  class="flex flex-wrap px-8 gap-2 data-[hidden=true]:opacity-0 data-[hidden=true]:pointer-events-none"
+>
+  {{block "search-filter-item" .Titles}}{{end}} {{block "search-filter-item"
+  .Manufacters}}{{end}}
+  <button class="text-zinc-800 rounded border border-zinc-200 px-4 py-1">
+    <span>Release month</span>
+    <i class="fa-solid fa-chevron-down text-sm ml-2 text-zinc-400"></i>
+  </button>
+  {{block "search-filter-item" .Status}}{{end}} {{block "search-filter-item"
+  .Criteria}}{{end}}
+  <button
+    id="{{.Ids.Searcher.FiltersClearAll}}"
+    data-hidden="true"
+    class="data-[hidden=true]:hidden text-red-500 hover:bg-red-50 hover:text-red-600 font-medium rounded border border-transparent px-4 py-1"
+  >
+    Clear filters
+  </button>
+</div>
+{{end}}

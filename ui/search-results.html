@@ -1,0 +1,10 @@
+{{define "search-results"}}
+<section
+  id="{{.Ids.Searcher.ResultsContainer}}"
+  class="data-[loading=true]:opacity-40"
+>
+  <div class="grid grid-cols-5 gap-4 p-8 mx-auto">
+    {{ range.SearchResults }} {{block "product-card" .}}{{ end }} {{ end }}
+  </div>
+</section>
+{{ end }}

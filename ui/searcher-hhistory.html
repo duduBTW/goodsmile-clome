@@ -1,0 +1,25 @@
+<div class="py-1" data-state="{{.Json}}">
+  <div class="flex justify-between">
+    <h3 class="text-sm font-bold py-1 pl-4">
+      <i class="fa-solid fa-clock-rotate-left mr-1 text-zinc-400 text-xs"></i>
+      <span>History</span>
+    </h3>
+    <button
+      id="{{.Ids.Searcher.ClearHistory}}"
+      class="rounded text-sm font-bold py-1 mr-1 px-3 text-red-400 hover:bg-red-50 hover:text-red-600"
+    >
+      Clear
+    </button>
+  </div>
+  <div class="flex flex-col py-1">
+    {{range $index, $historyItem := .Items}}
+    <a
+      class="px-4 py-1 capitalize data-[active=true]:bg-orange-50"
+      data-index="{{$index}}"
+      href="/search?q={{$historyItem}}"
+    >
+      {{$historyItem}}
+    </a>
+    {{end}}
+  </div>
+</div>

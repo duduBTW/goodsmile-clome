@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{block "page-change-loader" .}}{{end}} {{block "metadata" .}}{{end}}
+  <body>
+    {{block "nav" .}}{{end}}
+    <main class="flex items-start p-8 gap-4">
+      <div class="flex-[0.6]">{{block "product-images-grid" .}}{{end}}</div>
+      <div class="flex-[0.36] sticky top-8">
+        {{block "product-page-details" .}}{{end}}
+      </div>
+    </main>
+    <script src="/static/dist/product.bundle.js" defer></script>
+    <script id="{{.Ids.IdsData}}" type="application/json">
+      {{.Json}}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{block "metadata" .}}{{end}}
+  <body>
+    {{block "page-change-loader" .}}{{end}} {{block "nav" .}}{{end}}
+    <main>
+      {{block "carousel" .}}{{end}} {{block "alert" .}}{{end}} {{block
+      "searcher" .}}{{end}} {{block "preorder" .}}{{end}} {{block "exclusives"
+      .}}{{end}}
+    </main>
+
+    <script src="/static/dist/home.bundle.js" defer></script>
+    <script id="{{.Ids.IdsData}}" type="application/json">
+      {{.Json}}
+    </script>
+  </body>
+</html>

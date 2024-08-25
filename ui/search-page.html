@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{block "metadata" .}}{{end}}
+  <body>
+    {{block "page-change-loader" .}}{{end}} {{block "nav" .}}{{end}}
+    <main>
+      <section class="relative p-8 flex justify-center">
+        {{block "search-input" .}}{{end}}
+      </section>
+      {{block "search-filters" .}}{{end}} {{if gt (len .SearchResults) 0}}
+      {{block "search-results" .}}{{end}} {{else}} {{block
+      "empty-search-results" .}}{{end}} {{end}}
+    </main>
+
+    <script src="/static/dist/search.bundle.js" defer></script>
+    <script id="{{.Ids.IdsData}}" type="application/json">
+      {{.Json}}
+    </script>
+  </body>
+</html>

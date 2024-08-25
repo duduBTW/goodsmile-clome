@@ -1,0 +1,13 @@
+{{define "alert"}}
+<section class="my-3">
+  {{range .Alert}}
+  <div
+    class="text-orange-500 text-center py-2 px-3 flex justify-center items-baseline hover:underline"
+  >
+    <i class="fa-solid fa-exclamation text-xs text-zinc-400 mr-2"></i>
+    <span>{{.}}</span>
+    <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+  </div>
+  {{end}}
+</section>
+{{end}}

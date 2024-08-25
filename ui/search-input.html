@@ -1,0 +1,42 @@
+{{define "search-input"}}
+<form action="/search" method="get" class="relative max-w-2xl w-full">
+  <label
+    class="absolute left-3 top-1/2 -translate-y-1/2"
+    for="{{.Ids.Searcher.Input}}"
+    ><i class="fa-solid fa-magnifying-glass text-zinc-400"></i
+  ></label>
+  <input
+    autocomplete="off"
+    class="bg-white rounded border border-zinc-200 block h-11 pl-10 pr-28 w-full"
+    class="text-lg"
+    type="text"
+    name="q"
+    placeholder="Search..."
+    id="{{.Ids.Searcher.Input}}"
+    value="{{.SearchInputDefaultValue}}"
+  />
+
+  <button
+    class="absolute right-24 top-1/2 -translate-y-1/2 data-[hidden=true]:hidden"
+    for="{{.Ids.Searcher.Input}}"
+    data-hidden="true"
+    id="{{.Ids.Searcher.ClearInput}}"
+    type="button"
+  >
+    <i class="fa-solid fa-xmark text-zinc-400"></i>
+  </button>
+
+  <button
+    type="submit"
+    class="absolute right-2 top-1/2 -translate-y-1/2 bg-orange-500 text-white px-4 py-1 rounded-lg font-medium text-sm"
+  >
+    Search
+  </button>
+</form>
+
+<div
+  class="z-10 absolute left-1/2 -translate-x-1/2 top-20 max-w-2xl w-full bg-white shadow-lg rounded data-[hidden=true]:hidden empty:hidden"
+  data-hidden="true"
+  id="{{.Ids.Searcher.Suggestions}}"
+></div>
+{{end}}

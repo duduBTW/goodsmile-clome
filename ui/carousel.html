@@ -1,0 +1,55 @@
+{{define "carousel"}}
+<section class="bg-zinc-700 relative">
+  <div
+    class="flex gap-2 overflow-x-scroll snap-x snap-mandatory px-[calc((100vw_-_840px)_/_2)] py-2 relative"
+    id="{{.Ids.Carousel}}"
+  >
+    {{range $index, $carousel := .Carousel}}
+    <div
+      class="rounded-lg w-[840px] bg-red-50 flex-shrink-0 h-[360px] bg-cover bg-no-repeat bg-center snap-center"
+      style="background-image: url({{$carousel.Image}});"
+      data-index="{{$index}}"
+    ></div>
+    {{end}}
+  </div>
+
+  <!-- <div
+    class="absolute w-[840px] h-full mx-[calc((100vw_-_840px)_/_2)] top-0 left-0 pointer-events-none"
+  >
+
+  </div> -->
+  <div
+    class="absolute left-[calc((100vw_-_884px)_/_2)] top-1/2 -translate-y-1/2"
+  >
+    {{block "carousel-arrow" .LeftCarouselArrow}}{{end}}
+  </div>
+
+  <div
+    class="absolute right-[calc((100vw_-_884px)_/_2)] top-1/2 -translate-y-1/2"
+  >
+    {{block "carousel-arrow" .RightCarouselArrow}}{{end}}
+  </div>
+
+  <!-- Effect left -->
+  <div
+    class="absolute h-full bg-gradient-to-r from-zinc-700 via-30% to-transparent to-90% w-[calc((100vw_-_820px)_/_2)] top-0 left-0 pointer-events-none"
+  ></div>
+
+  <!-- Effect right -->
+  <div
+    class="absolute h-full bg-gradient-to-l from-zinc-700 via-30% to-transparent to-90% w-[calc((100vw_-_820px)_/_2)] top-0 right-0 pointer-events-none"
+  ></div>
+  <div
+    id="{{.Ids.CarouselPagination}}"
+    class="pt-2 pb-4 w-full flex justify-center gap-1.5"
+  >
+    {{range $index, $carousel := .Carousel}}
+    <div
+      id="{{$.Ids.CarouselPaginationPage}}"
+      class="w-2 h-2 bg-white rounded-full opacity-50 data-[active=true]:opacity-100 data-[active=true]:w-4 transition-all"
+      data-index="{{$index}}"
+    ></div>
+    {{end}}
+  </div>
+</section>
+{{end}}

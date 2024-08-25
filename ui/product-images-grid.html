@@ -1,0 +1,11 @@
+{{define "product-images-grid"}}
+<div class="columns-2">
+  {{range $index, $image := .Images}}
+  <img
+    class="rounded-lg mb-3 break-inside-avoid"
+    src="{{$image}}"
+    data-index="{{$index}}"
+  ></img>
+  {{end}}
+</div>
+{{end}}

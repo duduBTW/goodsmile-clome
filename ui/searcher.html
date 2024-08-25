@@ -1,0 +1,22 @@
+{{define "searcher"}}
+<section>
+  <div
+    class="relative pt-8 pb-12 flex justify-center gap-4 text-lg font-medium before:top-0 before:left-0 before:w-full before:h-full before:absolute before:bg-orange-500 before:rounded-bl-[100%] before:rounded-br-[100%]"
+  >
+    {{block "search-input" .}}{{end}}
+  </div>
+
+  <div class="flex flex-col gap-1 items-center pt-8">
+    <i class="fa-regular fa-face-smile text-4xl text-orange-500"></i>
+    <h3 class="text-center text-2xl font-medium">Search by Brand</h3>
+  </div>
+
+  <div class="grid grid-cols-3 gap-4 w-full max-w-[1200px] py-6 mx-auto">
+    {{range .Brand}}
+    <div class="w-full h-32 rounded bg-red-50 flex items-end p-3 font-medium">
+      {{.Name}}
+    </div>
+    {{end}}
+  </div>
+</section>
+{{end}}

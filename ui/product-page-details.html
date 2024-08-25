@@ -1,0 +1,13 @@
+{{define "product-page-details"}}
+<div class="flex flex-col gap-2 rounded border border-zinc-200 py-5 px-4">
+  <p class="text-zinc-500">{{.Catch}}</p>
+  <h1 class="text-2xl font-bold">{{.Title}}</h1>
+  <p class="mt-2 text-2xl">{{.Price}}</p>
+
+  <button
+    class="mt-10 rounded-lg text-lg bg-orange-500 text-white text-center h-14 font-medium hover:bg-orange-600 transition-colors"
+  >
+    Preorder now
+  </button>
+</div>
+{{end}}

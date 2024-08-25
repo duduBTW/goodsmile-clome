@@ -1,0 +1,23 @@
+{{define "product-card"}}
+<a
+  href="/product/{{.Id}}"
+  class="flex flex-col gap-1 product-card-h border-b-2 border-b-zinc-200 pb-1"
+>
+  <div class="flex w-full bg-red-50">
+    <img
+      class="rounded aspect-square w-full object-cover object-center"
+      src="{{.IamgeSrc}}"
+      alt=""
+    />
+  </div>
+  <p class="text-sm text-zinc-400 mt-1">{{.Marker}}</p>
+  <h3 class="tracking-wide">{{.Title}}</h3>
+  <div class="flex gap-1">
+    {{ range.Labels }}
+    <p class="bg-zinc-200 rounded py-1 px-2 text-xs font-medium">{{.}}</p>
+    {{ end }}
+  </div>
+
+  <p class="text-lg font-bold mt-auto">{{.Price}}</p>
+</a>
+{{end}}
